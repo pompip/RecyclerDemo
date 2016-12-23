@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="textColorPrimary">#010611</color>
+    <color name="textColorPrimaryInverse">#e6e9ef</color>
+    <color name="colorBackground">#fcfffefe</color>
+    <color name="textColorSecondary">#4c5d84</color>
+    <color name="textColorSecondaryInverse">#a4acbe</color>
+    <color name="statusBarColor">#bedcdb</color>
+    <color name="windowBackground">#fcffffff</color>
+    <color name="colorForeground">#02e23535</color>
+    <color name="navigationBarColor">#575050</color>
+
+
+    <color name="colorPrimary_dark">#08655c</color>
+    <color name="colorPrimaryDark_dark">#2b726b</color>
+    <color name="colorAccent_dark">#FF4081</color>
+    <color name="textColorPrimary_dark">#f5f7fc</color>
+    <color name="textColorPrimaryInverse_dark">#e6e9ef</color>
+    <color name="colorBackground_dark">#fc060606</color>
+    <color name="textColorSecondary_dark">#4c5d84</color>
+    <color name="textColorSecondaryInverse_dark">#a4acbe</color>
+    <color name="statusBarColor_dark">#bedcdb</color>
+    <color name="windowBackground_dark">#fc2e2828</color>
+    <color name="colorForeground_dark">#02e23535</color>
+    <color name="navigationBarColor_dark">#575050</color>
+</resources>
