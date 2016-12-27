@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         rv = (RecyclerView)findViewById(R.id.rv);
-        rv.setLayoutManager(new FlowLayoutManager());
         rv.setAdapter(new RecyclerAdapter());
+        rv.setLayoutManager(new FlowLayoutManager());
 
 
     }
