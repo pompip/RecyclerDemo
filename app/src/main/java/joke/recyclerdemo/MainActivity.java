@@ -2,18 +2,20 @@ package joke.recyclerdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import joke.recyclerdemo.widget.FlowLayoutManager;
 
 public class MainActivity extends AppCompatActivity {
-  final static int[] colors = {0xff00ff00, 0xff0000ff, 0xffff0000};
+    final static int[] colors = {0x5500ff00, 0x550000ff, 0x55ff0000};
     private RecyclerView rv;
 
     @Override
@@ -22,14 +24,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        rv = (RecyclerView)findViewById(R.id.rv);
+        rv = (RecyclerView) findViewById(R.id.rv);
         rv.setAdapter(new RecyclerAdapter());
         rv.setLayoutManager(new FlowLayoutManager());
+//        rv.setLayoutManager(new LinearLayoutManager(this));
 
 
     }
 
     class RecyclerAdapter extends RecyclerView.Adapter {
+        ArrayList<String> list = new ArrayList<>();
+
+        {
+            Random random = new Random();
+            for (int j = 0; j < 200; j++) {
+                int n = random.nextInt(20);
+                StringBuilder text = new StringBuilder(j + "--");
+                for (int i = 0; i < n; i++) {
+                    text.append(i);
+                }
+                list.add(text.toString());
+            }
+        }
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -45,12 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
             itemView.setBackgroundColor(colors[position % 3]);
             TextView childAt = (TextView) (itemView.getChildAt(0));
-            int n = new Random().nextInt(20);
-            StringBuilder text = new StringBuilder(position+"--") ;
-            for (int i = 0;i<n;i++) {
-                text.append(i);
-            }
-            childAt.setText(text);
+
+            childAt.setText(list.get(position));
             childAt.setTextColor(0xffffffff);
         }
 
