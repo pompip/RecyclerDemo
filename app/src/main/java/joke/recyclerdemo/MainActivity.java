@@ -1,10 +1,13 @@
 package joke.recyclerdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -12,70 +15,32 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
+import joke.recyclerdemo.activity.FlowLayoutActivity;
+import joke.recyclerdemo.activity.NumberTurningActivity;
 import joke.recyclerdemo.widget.FlowLayoutManager;
+import joke.recyclerdemo.widget.TextNumberItemAnimator;
 
-public class MainActivity extends AppCompatActivity {
-    final static int[] colors = {0x5500ff00, 0x550000ff, 0x55ff0000};
-    private RecyclerView rv;
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(MyApplication.themeID);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-        rv = (RecyclerView) findViewById(R.id.rv);
-        rv.setAdapter(new RecyclerAdapter());
-        rv.setLayoutManager(new FlowLayoutManager());
-//        rv.setLayoutManager(new LinearLayoutManager(this));
-
-
+        findViewById(R.id.button1).setOnClickListener(this);
+        findViewById(R.id.button2).setOnClickListener(this);
     }
 
-    class RecyclerAdapter extends RecyclerView.Adapter {
-        ArrayList<String> list = new ArrayList<>();
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent();
+        switch (v.getId()) {
 
-        {
-            Random random = new Random();
-            for (int j = 0; j < 200; j++) {
-                int n = random.nextInt(20);
-                StringBuilder text = new StringBuilder(j + "--");
-                for (int i = 0; i < n; i++) {
-                    text.append(i);
-                }
-                list.add(text.toString());
-            }
+            case R.id.button1:
+                intent = new Intent(this, FlowLayoutActivity.class);
+                break;
+            case R.id.button2:
+                intent = new Intent(this, NumberTurningActivity.class);
+                break;
         }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-            ViewGroup inflate = (ViewGroup) LayoutInflater.from(MainActivity.this).inflate(R.layout.item_rv, parent, false);
-            return new Holder(inflate);
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ViewGroup itemView = (ViewGroup) (holder.itemView);
-
-
-            itemView.setBackgroundColor(colors[position % 3]);
-            TextView childAt = (TextView) (itemView.getChildAt(0));
-
-            childAt.setText(list.get(position));
-            childAt.setTextColor(0xffffffff);
-        }
-
-        @Override
-        public int getItemCount() {
-            return 200;
-        }
-
-        class Holder extends RecyclerView.ViewHolder {
-
-            public Holder(View itemView) {
-                super(itemView);
-            }
-        }
+        startActivity(intent);
     }
 }
