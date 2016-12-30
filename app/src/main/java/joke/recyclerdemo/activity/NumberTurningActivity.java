@@ -57,7 +57,7 @@ public class NumberTurningActivity extends AppCompatActivity {
                     }
                 });
                 if (canRun) {
-                    handler.sendEmptyMessageDelayed(1, 500);
+                    handler.sendEmptyMessageDelayed(1, 1);
                 }
                 return true;
             }
@@ -95,6 +95,7 @@ public class NumberTurningActivity extends AppCompatActivity {
                     notifyItemChanged(chars.length - i);
                 }
             }
+
         }
 
         @Override
@@ -125,7 +126,7 @@ public class NumberTurningActivity extends AppCompatActivity {
         }
 
         public void bindNumber(char number) {
-            text.setText(number + "");
+            text.setText(number+"");
         }
     }
 }

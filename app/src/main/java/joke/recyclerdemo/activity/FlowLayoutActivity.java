@@ -26,7 +26,8 @@ public class FlowLayoutActivity extends AppCompatActivity {
         setTheme(MyApplication.themeID);
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_flow_layout);
+
         rv = (RecyclerView) findViewById(R.id.rv);
         rv.setAdapter(new RecyclerAdapter());
         rv.setLayoutManager(new FlowLayoutManager());
