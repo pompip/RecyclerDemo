@@ -31,8 +31,6 @@ public class FlowLayoutActivity extends AppCompatActivity {
         rv = (RecyclerView) findViewById(R.id.rv);
         rv.setAdapter(new RecyclerAdapter());
         rv.setLayoutManager(new FlowLayoutManager());
-//        rv.setLayoutManager(new LinearLayoutManager(this));
-
 
     }
 

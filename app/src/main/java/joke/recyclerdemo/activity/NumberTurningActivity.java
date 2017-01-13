@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import joke.recyclerdemo.R;
+import joke.recyclerdemo.widget.TextItemAnimator;
 import joke.recyclerdemo.widget.TextNumberItemAnimator;
 
 public class NumberTurningActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class NumberTurningActivity extends AppCompatActivity {
         final TextNumberAdapter adapter = new TextNumberAdapter();
         rv_text_number.setAdapter(adapter);
         rv_text_number.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        rv_text_number.setItemAnimator(new TextNumberItemAnimator());
+        rv_text_number.setItemAnimator(new TextItemAnimator());
 
         final View button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
